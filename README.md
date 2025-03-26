@@ -1,1 +1,1 @@
-# AskGPT
+# Apple Shortcuts
