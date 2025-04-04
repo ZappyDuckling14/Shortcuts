@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Converter</title>
+  <!-- Подключаем Marked для преобразования Markdown в HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Подключаем MathJax для рендеринга формул -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+  </style>
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+    // Функция для преобразования Markdown в HTML
+    function convert(markdownText) {
+      var htmlContent = marked(markdownText);
+      document.getElementById("content").innerHTML = htmlContent;
+      // После вставки HTML запускаем MathJax для обработки формул
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById("content")]);
+    }
+    
+    // Если вызов происходит с передачей параметра (например, через GET-параметр "text")
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var markdown = params.get("text");
+      if (markdown) {
+        // Если текст передан, выполняем конвертацию
+        convert(markdown);
+      }
+    })();
+  </script>
+</body>
+</html>
