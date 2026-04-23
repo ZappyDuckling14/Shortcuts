@@ -1,3 +1,18 @@
 {
-"models": "openai/gpt-oss-120b:free"
+  "models": [
+    "openai/gpt-oss-120b:free",
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    "openai/gpt-oss-20b:free",
+    "nvidia/nemotron-3-nano-30b-a3b:free",
+  ],
+  "x-key": [
+    "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",
+    "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",
+    "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",
+    "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",
+    "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",
+    "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",
+    "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",
+    "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"
+  ]
 }
